@@ -1,11 +1,12 @@
-require("dotenv").config();
-const { connectDB } = require("./database");
-const { createClient } = require("./bot");
+import "dotenv/config";
+import { connectDB } from "./database.js";
+import { createClient } from "./bot.js";
 
 async function main() {
-    console.log("Starting scrappie");
+    console.log("__start__: scrappie");
     connectDB();
-    // Start Discord Bot
+
+    // start bot
     const client = createClient();
     await client.login(process.env.DISCORD_TOKEN);
 }
